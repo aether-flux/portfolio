@@ -7,12 +7,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Carousel } from "@/app/_components/Carousel";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 
 export default function ProjectPage() {
   const { project } = useParams();
-
   const projData = projectsData.find((p) => p.slug === project);
-  console.log(projData);
+
+  useGSAP(() => {
+    gsap.from(".project-subt", {
+      y: -20,
+      opacity: 0,
+      duration: 0.4,
+    });
+    gsap.from(".project-title", {
+      y: -10,
+      opacity: 0,
+      duration: 0.4,
+      delay: 0.2,
+    });
+    gsap.from(".diagArr", {
+      y: 20,
+      x: -20,
+      opacity: 0,
+      duration: 0.3,
+      delay: 0.5,
+    });
+    gsap.from(".other-content", {
+      opacity: 0,
+      duration: 0.4,
+      delay: 0.9,
+    });
+  });
 
   if (!projData) {
     return <div>Project not found.</div>;
@@ -24,11 +51,11 @@ export default function ProjectPage() {
 
       <div className="flex flex-col gap-10 px-20 mt-32">
         <div>
-          <h4 className="text-md font-medium uppercase tracking-[2px]">
+          <h4 className="project-subt text-md font-medium uppercase tracking-[2px]">
             project
           </h4>
           <div className="flex items-center gap-4">
-            <h2 className="text-4xl font-extrabold uppercase tracking-[4px]">
+            <h2 className="project-title text-4xl font-extrabold uppercase tracking-[4px]">
               {projData.title}
             </h2>
             {projData.hosted && (
@@ -42,31 +69,26 @@ export default function ProjectPage() {
                   width={20}
                   height={20}
                   alt="View Live"
+                  className="diagArr"
                 />
               </Link>
             )}
           </div>
         </div>
 
-        {/* <div className="flex justify-center items-center">
-          <Image
-            src={projData.img}
-            alt="landing page of inked"
-            width={1024}
-            height={500}
-            className="rounded-xl"
-          />
-        </div> */}
+        <div className="other-content">
+          {projData.img && projData.img.length > 0 ? (
+            <Carousel imgs={projData.img} />
+          ) : (
+            <p>No images available for this project.</p>
+          )}
+        </div>
 
-        {projData.img && projData.img.length > 0 ? (
-          <Carousel imgs={projData.img} />
-        ) : (
-          <p>No images available for this project.</p>
-        )}
+        <p className="other-content text-lg font-normal w-1/2">
+          {projData.desc}
+        </p>
 
-        <p className="text-lg font-normal w-1/2">{projData.desc}</p>
-
-        <div className="flex flex-col gap-2">
+        <div className="other-content flex flex-col gap-2">
           <h3 className="text-xl font-semibold tracking-[1px]">Tools Used</h3>
           <ul className="list-disc pl-8">
             {projData.tools.map((tool) => (
@@ -76,7 +98,7 @@ export default function ProjectPage() {
         </div>
 
         {projData.github && (
-          <div className="flex flex-col gap-2">
+          <div className="other-content flex flex-col gap-2">
             <h3 className="text-xl font-semibold tracking-[1px]">
               GitHub Repo
             </h3>
@@ -91,7 +113,7 @@ export default function ProjectPage() {
         )}
 
         {projData.hosted && (
-          <div className="flex flex-col gap-2">
+          <div className="other-content flex flex-col gap-2">
             <h3 className="text-xl font-semibold tracking-[1px]">
               Live Website
             </h3>

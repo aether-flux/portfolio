@@ -7,6 +7,12 @@ import Image from "next/image";
 
 export const Home = () => {
   useGSAP(() => {
+    gsap.from(".home-intro", {
+      x: -100,
+      opacity: 0,
+      duration: 0.5,
+      ease: "linear",
+    });
     gsap.to(".home-star", {
       rotation: "+=90",
       duration: 5,
@@ -36,7 +42,7 @@ export const Home = () => {
           />
         </div>
         <div className="w-full flex justify-between items-end px-10 md:px-20">
-          <p className="w-[100%] md:w-[50%] tracking-[2px] leading-snug text-2xl md:text-4xl md:text-left font-extralight uppercase text-[#372F2D]">
+          <p className="home-intro w-[100%] md:w-[50%] tracking-[2px] leading-snug text-2xl md:text-4xl md:text-left font-extralight uppercase text-[#372F2D]">
             I am a{" "}
             <span className="font-normal text-[#732626]">
               Fullstack developer

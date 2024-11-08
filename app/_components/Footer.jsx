@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="flex flex-col gap-10 md:gap-20 p-10 md:p-20">
         <div className="flex gap-16 md:gap-40">
           <div>
-            <h1 className="w-1/2 md:w-2/3 uppercase text-2xl md:text-6xl font-extrabold text-[#E24141]">
+            <h1 className="w-1/2 md:w-1/3 uppercase text-2xl md:text-6xl mb-1 md:mb-2 font-extrabold text-[#E24141]">
               let{"'"}s work together
             </h1>
             <h3 className="text-lg md:text-2xl font-medium text-[#D0A1A1]">

@@ -51,7 +51,7 @@ export const WorkBlock = ({ title, desc, img }) => {
             transformOrigin: "center",
             pointerEvents: "none",
           }}
-          className="rounded-md transition-transform scale-0 group-hover:scale-100 duration-500 ease-in-out z-[50]"
+          className="invisible md:visible rounded-md transition-transform scale-0 group-hover:scale-100 duration-500 ease-in-out z-[50]"
         />
       )}
     </div>
