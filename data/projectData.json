@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Inked",
+    "slug": "inked",
+    "desc": "Inked is a rich note-taking tool aimed at providing a platform to ink down all your thoughts in one place.",
+    "img": [
+      "/inked/inkedLanding.jpg",
+      "/inked/inkedDocs.png",
+      "/inked/inkedNote.png",
+      "/inked/inkedDelete.png"
+    ],
+    "tools": [
+      {
+        "name": "Next.js",
+        "index": 1
+      },
+      {
+        "name": "Convex",
+        "index": 2
+      },
+      {
+        "name": "Clerk",
+        "index": 3
+      },
+      {
+        "name": "Edge Store",
+        "index": 4
+      },
+      {
+        "name": "BlockNote",
+        "index": 5
+      }
+    ],
+    "github": "https://github.com/xerctia/inked/",
+    "hosted": "https://inked-ivory.vercel.app/"
+  },
+  {
+    "title": "Reqy",
+    "slug": "reqy",
+    "desc": "Reqy is a simple command-line tool to simplify your GET and POST requests. No more going to different softwares just for testing an endpoint a few times.",
+    "img": ["/reqy/reqySS.png"],
+    "tools": [
+      {
+        "name": "Java",
+        "index": 1
+      },
+      {
+        "name": "Linux Shell Script / Windows Batch File",
+        "index": 2
+      }
+    ],
+    "github": "https://github.com/xerctia/reqy/"
+  }
+]
