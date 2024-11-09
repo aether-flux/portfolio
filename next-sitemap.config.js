@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.SITE_URL,
+  siteUrl: process.env.SITE_URL || "https://amartya-dev.vercel.app",
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
