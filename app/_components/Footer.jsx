@@ -6,31 +6,45 @@ export const Footer = () => {
       <div className="flex flex-col gap-10 md:gap-20 p-10 md:p-20">
         <div className="flex gap-16 md:gap-40">
           <div>
-            <h1 className="w-1/2 md:w-1/3 uppercase text-2xl md:text-6xl mb-1 md:mb-2 font-extrabold text-[#E24141]">
+            <h1 className="w-1/2 md:w-1/3 uppercase text-2xl md:text-6xl mb-1 md:mb-2 font-extrabold text-[#E24141] tracking-[1px] md:tracking-[2px] leading-snug md:leading-tight">
               let{"'"}s work together
             </h1>
-            <h3 className="text-lg md:text-2xl font-medium text-[#D0A1A1]">
-              amartya96@proton.me
-            </h3>
+            <Link href="mailto:amartya96@proton.me">
+              <h3 className="text-lg md:text-2xl font-medium text-[#D0A1A1] hover:text-[#D0A0A0]/70">
+                amartya96@proton.me
+              </h3>
+            </Link>
           </div>
-          <div className="flex flex-col gap-2 md:gap-6">
+          <div className="flex flex-col gap-1 md:gap-4">
             <Link
-              className="text-lg md:text-2xl font-bold text-[#EDD4D4]"
-              href="/"
+              className="text-md md:text-2xl font-semibold md:font-bold text-[#EDD4D4] hover:text-primary/60"
+              href="/#home"
             >
               Home
             </Link>
             <Link
-              className="text-lg md:text-2xl font-bold text-[#EDD4D4]"
-              href="/"
-            >
-              About
-            </Link>
-            <Link
-              className="text-lg md:text-2xl font-bold text-[#EDD4D4]"
-              href="/"
+              className="text-md md:text-2xl font-semibold md:font-bold text-[#EDD4D4] hover:text-primary/60"
+              href="/#work"
             >
               Work
+            </Link>
+            <Link
+              className="text-md md:text-2xl font-semibold md:font-bold text-[#EDD4D4] hover:text-primary/60"
+              href="/#skills"
+            >
+              Skills
+            </Link>
+            <Link
+              className="text-md md:text-2xl font-semibold md:font-bold text-[#EDD4D4] hover:text-primary/60"
+              href="/#experience"
+            >
+              Experience
+            </Link>
+            <Link
+              className="text-md md:text-2xl font-semibold md:font-bold text-[#EDD4D4] hover:text-primary/60"
+              href="/#about"
+            >
+              About
             </Link>
           </div>
         </div>
@@ -41,15 +55,15 @@ export const Footer = () => {
           <div className="flex gap-10 md:gap-20">
             <a
               target="_blank"
-              href="https://github.com/widewipe"
-              className="text-[#D0A0A0] text-md md:text-xl font-medium"
+              href="https://github.com/xerctia"
+              className="hover:text-primary/70 text-primary text-md md:text-xl font-medium"
             >
-              Github
+              GitHub
             </a>
             <a
               target="_blank"
               href="https://www.linkedin.com/in/amartya-chowdhury"
-              className="text-[#D0A0A0] text-md md:text-xl font-medium"
+              className="hover:text-primary/70 text-primary text-md md:text-xl font-medium"
             >
               LinkedIn
             </a>

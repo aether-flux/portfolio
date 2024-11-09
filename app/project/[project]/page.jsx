@@ -49,7 +49,7 @@ export default function ProjectPage() {
     <>
       <Navbar />
 
-      <div className="flex flex-col gap-10 px-20 mt-32">
+      <div className="flex flex-col gap-10 px-10 md:px-20 mt-32">
         <div>
           <h4 className="project-subt text-md font-medium uppercase tracking-[2px]">
             project
