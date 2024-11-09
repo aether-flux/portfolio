@@ -84,7 +84,7 @@ export default function ProjectPage() {
           )}
         </div>
 
-        <p className="other-content text-lg font-normal w-1/2">
+        <p className="other-content text-lg font-normal w-5/6 md:w-1/2">
           {projData.desc}
         </p>
 
@@ -103,7 +103,7 @@ export default function ProjectPage() {
               GitHub Repo
             </h3>
             <Link
-              className="text-lg font-normal hover:text-primary-foreground/80"
+              className="text-lg font-normal underline hover:no-underline"
               href={projData.github}
               target="_blank"
             >
@@ -118,7 +118,7 @@ export default function ProjectPage() {
               Live Website
             </h3>
             <Link
-              className="text-lg font-normal hover:text-primary-foreground/80"
+              className="text-lg font-normal underline hover:no-underline"
               href={projData.hosted}
               target="_blank"
             >

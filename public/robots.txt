@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /api/        # Avoid crawling sensitive API routes (if any)
+Disallow: /_next/      # Don't crawl Next.js internal files and assets
+Disallow: /404         # Don't index 404 pages
+
+# Allow all crawlers to access everything else
+Allow: /               # Allow crawling of the homepage and other pages
+
+Sitemap: https://amartyadev.xyz/sitemap.xml  # Update with your sitemap URL
