@@ -3,14 +3,14 @@ import Link from "next/link";
 export const Footer = () => {
   return (
     <footer className="bg-primary-foreground">
-      <div className="flex flex-col gap-10 md:gap-20 p-10 md:p-20">
-        <div className="flex gap-16 md:gap-40">
+      <div className="flex flex-col gap-5 md:gap-20 py-10 px-4 md:p-20">
+        <div className="flex gap-10 md:gap-40">
           <div>
-            <h1 className="w-1/2 md:w-1/3 uppercase text-2xl md:text-6xl mb-1 md:mb-2 font-extrabold text-[#E24141] tracking-[1px] md:tracking-[2px] leading-snug md:leading-tight">
+            <h1 className="w-1/2 md:w-1/3 uppercase text-lg md:text-6xl mb-1 md:mb-2 font-extrabold text-[#E24141] tracking-[1px] md:tracking-[2px] leading-snug md:leading-tight">
               let{"'"}s work together
             </h1>
             <Link href="mailto:amartya96@proton.me">
-              <h3 className="text-lg md:text-2xl font-medium text-[#D0A1A1] hover:text-[#D0A0A0]/70">
+              <h3 className="text-sm md:text-2xl font-medium text-[#D0A1A1] hover:text-[#D0A0A0]/70">
                 amartya96@proton.me
               </h3>
             </Link>
@@ -48,11 +48,11 @@ export const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex items-end md:items-center gap-10 md:gap-32">
+        <div className="flex items-end md:items-center gap-5 md:gap-32">
           <p className="text-[#D0A0A0] text-lg md:text-xl font-semibold uppercase">
             Amartya Chowdhury
           </p>
-          <div className="flex gap-10 md:gap-20">
+          <div className="flex gap-3 md:gap-20">
             <a
               target="_blank"
               href="https://github.com/xerctia"
