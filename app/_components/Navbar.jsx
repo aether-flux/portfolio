@@ -222,8 +222,8 @@ export const Navbar = () => {
 
       <div
         className={`${
-          isOpen ? "translate-x-0" : "translate-x-[-1000px]"
-        } h-[100dvh] w-[50dvw] rounded-xl flex flex-col justify-center items-center gap-y-8 py-36 px-10 transform absolute bg-red-500/10 backdrop-blur-xl z-[999] transition-transform duration-300`}
+          isOpen ? "translate-x-0" : "translate-x-[-1500px]"
+        } h-[100dvh] w-[75dvw] rounded-xl flex flex-col justify-center items-center gap-y-8 py-36 px-10 transform absolute bg-red-500/10 backdrop-blur-xl z-[999] transition-transform duration-300`}
       >
         <Link
           className="relative text-center font-light text-sm px-10 py-5 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
