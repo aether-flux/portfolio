@@ -223,10 +223,10 @@ export const Navbar = () => {
       <div
         className={`${
           isOpen ? "translate-x-0" : "translate-x-[-1000px]"
-        } h-[80dvh] w-[50dvw] rounded-xl flex flex-col justify-center items-center gap-y-8 py-36 px-10 transform absolute bg-red-500/10 backdrop-blur-xl z-[999] transition-transform duration-300`}
+        } h-[100dvh] w-[50dvw] rounded-xl flex flex-col justify-center items-center gap-y-8 py-36 px-10 transform absolute bg-red-500/10 backdrop-blur-xl z-[999] transition-transform duration-300`}
       >
         <Link
-          className="relative text-center font-light text-sm px-10 py-3 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
+          className="relative text-center font-light text-sm px-10 py-5 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
           href="/#home"
         >
           <span className="relative z-[3000] font-medium group-hover:text-primary transition-colors duration-300">
@@ -235,7 +235,7 @@ export const Navbar = () => {
           <div className="absolute z-[1000] inset-0 bg-primary-foreground rounded-full transform scale-x-0 scale-y-0 origin-bottom group-hover:scale-x-[2] group-hover:scale-y-[2] transition-all duration-300 ease-in"></div>
         </Link>
         <Link
-          className="relative text-center font-light text-sm px-10 py-3 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
+          className="relative text-center font-light text-sm px-10 py-5 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
           href="/#work"
         >
           <span className="relative z-10 font-medium group-hover:text-primary transition-colors duration-300">
@@ -244,7 +244,7 @@ export const Navbar = () => {
           <div className="absolute z-0 inset-0 bg-primary-foreground rounded-full transform scale-x-0 scale-y-0 origin-bottom group-hover:scale-x-[2] group-hover:scale-y-[2] transition-all duration-300 ease-in"></div>
         </Link>
         <Link
-          className="relative text-center font-light text-sm px-10 py-3 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
+          className="relative text-center font-light text-sm px-10 py-5 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
           href="/#skills"
         >
           <span className="relative z-10 font-medium group-hover:text-primary transition-colors duration-300">
@@ -253,7 +253,7 @@ export const Navbar = () => {
           <div className="absolute z-0 inset-0 bg-primary-foreground rounded-full transform scale-x-0 scale-y-0 origin-bottom group-hover:scale-x-[2] group-hover:scale-y-[2] transition-all duration-300 ease-in"></div>
         </Link>
         <Link
-          className="relative text-center font-light text-sm px-10 py-3 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
+          className="relative text-center font-light text-sm px-10 py-5 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
           href="/#experience"
         >
           <span className="relative z-10 font-medium group-hover:text-primary transition-colors duration-300">
@@ -262,7 +262,7 @@ export const Navbar = () => {
           <div className="absolute z-0 inset-0 bg-primary-foreground rounded-full transform scale-x-0 scale-y-0 origin-bottom group-hover:scale-x-[2] group-hover:scale-y-[2] transition-all duration-300 ease-in"></div>
         </Link>
         <Link
-          className="relative text-center font-light text-sm px-10 py-3 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
+          className="relative text-center font-light text-sm px-10 py-5 border-[1px] rounded-full border-primary-foreground text-primary-foreground overflow-hidden group hover:scale-[1.2] transition-all duration-200 ease-in-out"
           href="/#about"
         >
           <span className="relative z-10 font-medium group-hover:text-primary transition-colors duration-300">
