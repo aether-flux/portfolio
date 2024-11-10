@@ -11,4 +11,8 @@
     background: #a32e2e;
     color: #fff5f2;
   }
+
+  * {
+    cursor: none;
+  }
 }

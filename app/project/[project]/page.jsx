@@ -10,6 +10,7 @@ import { Carousel } from "@/app/_components/Carousel";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import CursorFollower from "@/app/_components/CursorFollower";
 
 export default function ProjectPage() {
   const { project } = useParams();
@@ -47,6 +48,8 @@ export default function ProjectPage() {
 
   return (
     <>
+      <CursorFollower />
+
       <Navbar />
 
       <div className="flex flex-col gap-10 px-10 md:px-20 mt-32">
