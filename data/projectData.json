@@ -31,7 +31,7 @@
         "index": 5
       }
     ],
-    "github": "https://github.com/xerctia/inked/",
+    "github": "https://github.com/aether-flux/inked/",
     "hosted": "https://inked-ivory.vercel.app/"
   },
   {
@@ -49,6 +49,60 @@
         "index": 2
       }
     ],
-    "github": "https://github.com/xerctia/reqy/"
+    "github": "https://github.com/aether-flux/reqy/"
+  },
+  {
+    "title": "DevFlow",
+    "slug": "devflow",
+    "desc": "DevFlow is a lightweight presentation platform designed for developer meetups and sessions. Built with React and IndexedDB, it allows users to create and store presentations offline, import Google Fonts, and export slides seamlessly. With its minimal UI and developer-friendly workflow, DevFlow simplifies technical presentations without the bloat of traditional tools.",
+    "img": [
+      "/devflow/home.png",
+      "/devflow/hero.png",
+      "/devflow/feats.png"
+    ],
+    "tools": [
+      {
+        "name": "React",
+        "index": 1
+      },
+      {
+        "name": "IndexedDB",
+        "index": 2
+      },
+      {
+        "name": "Google Fonts API",
+        "index": 3
+      }
+    ],
+    "github": "https://github.com/aether-flux/devflow",
+    "hosted": "https://devflow-devsoc.vercel.app"
+  },
+  {
+    "title": "Swapp.JS",
+    "slug": "swappjs",
+    "desc": "Swapp.js is a universal database adapter that simplifies your DB setup and lets you write queries once, running them seamlessly across both SQL and NoSQL databases. No more vendor lock-in or complex migrations—just plug, query, and switch effortlessly!",
+    "img": [
+      "/swappjs/product_hunt_thumbnail.png",
+      "/swappjs/slide1.png",
+      "/swappjs/slide2.png",
+      "/swappjs/slide3.png",
+      "/swappjs/slide4.png"
+    ],
+    "tools": [
+      {
+        "name": "Node.js / NPM",
+        "index": 1
+      },
+      {
+        "name": "TypeScript",
+        "index": 2
+      },
+      {
+        "name": "SQL/NoSQL",
+        "index": 3
+      }
+    ],
+    "github": "https://github.com/aether-flux/swappjs",
+    "hosted": "https://www.npmjs.com/package/swapp.js"
   }
 ]

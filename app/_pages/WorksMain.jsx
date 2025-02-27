@@ -9,6 +9,20 @@ export const WorksMain = () => {
           Projects
         </h1>
         <div className="flex flex-col gap">
+          <Link href="/project/swappjs">
+            <WorkBlock
+              title="Swapp.js"
+              desc="A universal database adapter that provides a single SQL-like query language for both SQL and NoSQL databases."
+              img="/swappjs/product_hunt_thumbnail.png"
+            />
+          </Link>
+          <Link href="/project/devflow">
+            <WorkBlock
+              title="DevFlow"
+              desc="A minimalist presentation-making platform for developer meetups and sessions."
+              img="/devflow/hero.png"
+            />
+          </Link>
           <Link href="/project/inked">
             <WorkBlock
               title="Inked"
@@ -23,6 +37,9 @@ export const WorksMain = () => {
               img="/reqy/reqySS.png"
             />
           </Link>
+
+
+
         </div>
       </div>
     </section>

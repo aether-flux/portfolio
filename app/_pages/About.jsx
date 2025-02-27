@@ -58,7 +58,7 @@ export const About = () => {
               </h3>
               <p className="mb-6 w-5/6 md:w-1/2">
                 When I{"’"}m not knee-deep in code, you might catch me tuning
-                into my favorite playlists or pretending I can draw. Coding is
+                into my favorite playlists or pretending I am a poet. Coding is
                 my main groove, but who knows? Someday I might surprise myself
                 with a masterpiece!
               </p>
