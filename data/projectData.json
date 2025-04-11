@@ -104,5 +104,25 @@
     ],
     "github": "https://github.com/aether-flux/swappjs",
     "hosted": "https://www.npmjs.com/package/swapp.js"
+  },
+  {
+    "title": "Rensa",
+    "slug": "rensa",
+    "desc": "Rensa is a powerful yet lightweight backend framework designed for developers who value speed and simplicity.",
+    "img": [
+      "/rensa/landing.png",
+      "/rensa/f1.png",
+      "/rensa/f2.png",
+      "/rensa/f3.png",
+      "/rensa/f4.png"
+    ],
+    "tools": [
+      {
+        "name": "Node.js/NPM",
+        "index": 1
+      }
+    ],
+    "github": "https://github.com/aether-flux/rensa",
+    "hosted": "https://rensa.vercel.app"
   }
 ]

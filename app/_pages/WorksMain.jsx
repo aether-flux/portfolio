@@ -9,6 +9,13 @@ export const WorksMain = () => {
           Projects
         </h1>
         <div className="flex flex-col gap">
+          <Link href="/project/rensa">
+            <WorkBlock
+              title="Rensa"
+              desc="A minimal and fast backend framework for Node.js."
+              img="/rensa/landing.png"
+            />
+          </Link>
           <Link href="/project/swappjs">
             <WorkBlock
               title="Swapp.js"
