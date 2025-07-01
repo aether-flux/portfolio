@@ -16,6 +16,13 @@ export const WorksMain = () => {
               img="/rensa/landing.png"
             />
           </Link>
+          <Link href="/project/decide">
+            <WorkBlock
+              title="Decide"
+              desc="A lightweight permission engine with condition support, written in Rust, available for Rust and JS/TS."
+              img="/decide/decide-rs.jpeg"
+            />
+          </Link>
           <Link href="/project/swappjs">
             <WorkBlock
               title="Swapp.js"

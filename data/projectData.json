@@ -124,5 +124,39 @@
     ],
     "github": "https://github.com/aether-flux/rensa",
     "hosted": "https://rensa.vercel.app"
+  },
+  {
+    "title": "Decide",
+    "slug": "decide",
+    "desc": "Decide is a local-first and scriptable permission engine built in Rust, available to use in both Rust (Crates.io - decide-core) and JS/TS (NPM - decide-core).",
+    "img": [
+      "/decide/decide-rs.jpeg",
+      "/decide/decide-js.jpeg",
+      "/decide/decide-jsondata.jpeg"
+    ],
+    "tools": [
+      {
+        "name": "Rust",
+        "index": 1
+      },
+      {
+        "name": "serde",
+        "index": 2
+      },
+      {
+        "name": "Rhai",
+        "index": 3
+      },
+      {
+        "name": "TypeScript",
+        "index": 4
+      },
+      {
+        "name": "napi-rs (Rust-Node bridge)",
+        "index": 5
+      }
+    ],
+    "github": "https://github.com/aether-flux/decide",
+    "hosted": "https://crates.io/crates/decide-core"
   }
 ]

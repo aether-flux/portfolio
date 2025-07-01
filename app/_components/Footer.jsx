@@ -55,7 +55,7 @@ export const Footer = () => {
           <div className="flex gap-3 md:gap-20">
             <a
               target="_blank"
-              href="https://github.com/xerctia"
+              href="https://github.com/aether-flux"
               className="hover:text-primary/70 text-primary text-md md:text-xl font-medium"
             >
               GitHub
