@@ -11,11 +11,8 @@ export const Skills = () => {
               Languages
             </h3>
             <ul className="list-disc pl-5 gap-y-2 flex flex-col">
-              <li>HTML/CSS</li>
+              <li>Rust</li>
               <li>Javascript</li>
-              <li>Java</li>
-              <li>Python</li>
-              <li>C</li>
               <li>Shell Script (Linux)</li>
             </ul>
           </div>

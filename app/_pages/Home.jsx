@@ -45,14 +45,12 @@ export const Home = () => {
           <p className="home-intro w-[100%] md:w-[50%] tracking-[2px] leading-snug text-2xl md:text-4xl md:text-left font-extralight uppercase text-[#372F2D]">
             I am a{" "}
             <span className="font-normal text-[#732626]">
-              Full-stack developer
+              software developer
             </span>{" "}
             skilled in{" "}
-            <span className="font-normal text-[#732626]">next.js</span> and{" "}
-            <span className="font-normal text-[#732626]">express</span> and i
-            build <span className="font-normal text-[#732626]">useful stuff</span>{" "}
-            to solve problems{" "}
-            <span className="font-normal text-[#732626]">efficiently</span>
+            <span className="font-normal text-[#732626]">rust</span>{" "} 
+            , crafting <span className="font-normal text-[#732626]">efficient tools, sdks and systems</span>{" "}
+            that solve real problems
           </p>
           <Image
             src="/scroll-down.svg"

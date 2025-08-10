@@ -9,11 +9,18 @@ export const WorksMain = () => {
           Projects
         </h1>
         <div className="flex flex-col gap">
-          <Link href="/project/rensa">
+          <Link href="/project/profig">
             <WorkBlock
-              title="Rensa"
-              desc="A minimal and fast backend framework for Node.js."
-              img="/rensa/landing.png"
+              title="Profig"
+              desc="A config framework (in development) for Rust, with attributes, built-in validation, sample generation and more."
+              img="/profig/profig1.png"
+            />
+          </Link>
+          <Link href="/project/cues">
+            <WorkBlock
+              title="Cues"
+              desc="A task and project management platform for developers, with a CLI at your fingertips."
+              img="/cues/cues1.png"
             />
           </Link>
           <Link href="/project/decide">
@@ -21,6 +28,13 @@ export const WorksMain = () => {
               title="Decide"
               desc="A lightweight permission engine with condition support, written in Rust, available for Rust and JS/TS."
               img="/decide/decide-rs.jpeg"
+            />
+          </Link>
+          <Link href="/project/rensa">
+            <WorkBlock
+              title="Rensa"
+              desc="A minimal and fast backend framework for Node.js."
+              img="/rensa/landing.png"
             />
           </Link>
           <Link href="/project/swappjs">

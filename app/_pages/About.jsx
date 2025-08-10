@@ -45,8 +45,7 @@ export const About = () => {
                 the world of web dev. Fast forward to now, and my skillset has
                 grown to include{" "}
                 <span className="font-medium">
-                  Express, React.js, Next.js, MongoDB, TailwindCSS, Firebase,
-                  Convex, GSAP...
+                  Rust, serde, Express, Next.js, TailwindCSS, Supabase, NeonDB, ...
                 </span>{" "}
                 and counting! Learning new tech is kind of my thing.
               </p>

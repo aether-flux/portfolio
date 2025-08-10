@@ -158,5 +158,69 @@
     ],
     "github": "https://github.com/aether-flux/decide",
     "hosted": "https://crates.io/crates/decide-core"
+  },
+  {
+    "title": "Cues",
+    "slug": "cues",
+    "desc": "Cues is a task and project management platform built for devs. It comes with a CLI to manage your tasks efficiently from your home turf (terminal), while also providing a web UI for those who prefer that. It's like Linear with a CLI.",
+    "img": [
+      "/cues/cues1.png",
+      "/cues/cues2.png",
+      "/cues/cues3.png"
+    ],
+    "tools": [
+      {
+        "name": "Rust",
+        "index": 1
+      },
+      {
+        "name": "Next.js",
+        "index": 2
+      },
+      {
+        "name": "Node.js",
+        "index": 3
+      },
+      {
+        "name": "JavaScript (Rensa - for backend)",
+        "index": 4
+      },
+      {
+        "name": "JWTs and Keyrings",
+        "index": 5
+      }
+    ],
+    "github": "https://github.com/aether-flux/cues-web",
+    "hosted": "https://cues-web.vercel.app"
+  },
+  {
+    "title": "Profig",
+    "slug": "profig",
+    "desc": "Profig is a config framework built in Rust, with attributes for simple and intuitive usage, multiple formats supported (JSON, TOML, YAML), strict enforcing of allowed formats to parse configs, built-in validation via #[profig(...)] for every field, and sample config & documentation generation.",
+    "img": [
+      "/profig/profig1.png",
+      "/profig/profig2.png",
+      "/profig/profig3.png"
+    ],
+    "tools": [
+      {
+        "name": "Rust",
+        "index": 1
+      },
+      {
+        "name": "serde",
+        "index": 2
+      },
+      {
+        "name": "Procedural macros",
+        "index": 3
+      },
+      {
+        "name": "Feature flags",
+        "index": 4
+      }
+    ],
+    "github": "https://github.com/aether-flux/profig",
+    "hosted": "https://crates.io/crates/profig"
   }
 ]

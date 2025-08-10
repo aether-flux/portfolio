@@ -8,11 +8,17 @@ export const Experience = () => {
           Experience
         </h1>
         <div className="experiences px-10 md:px-20 pt-6">
-          <ExperienceBlock
+          {/*<ExperienceBlock
             date="Sep 2024 - Nov 2024"
             post="Full Stack Development Intern"
             company="Digital Guruji"
             desc="I was entrusted with a range of complex backend and frontend tasks during my internship, which pushed me to grow both technically and creatively."
+          />*/}
+          <ExperienceBlock
+            date=""
+            post=""
+            company="NA"
+            desc=""
           />
         </div>
       </div>
