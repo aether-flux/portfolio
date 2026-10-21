@@ -1,0 +1,114 @@
+.markdown-content {
+  color: var(--color-secondary, #b8b2ab);
+  font-family: var(--font-sans, sans-serif);
+  line-height: 1.7;
+  /* margin-top: 7%; */
+  /* padding: 80px 80px; */
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  font-family: var(--font-serif, serif);
+  color: var(--color-primary, #cdc4ba);
+  font-style: italic;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content h1 {
+  font-size: 2.5rem;
+}
+
+.markdown-content h2 {
+  font-size: 2rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1.25rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content ul {
+  list-style-type: square;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+.markdown-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Inline code blocks (`abc`) - kept inline and clean */
+.markdown-content :not(pre)>code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875em;
+  background-color: #3d3834;
+  padding: 0.15rem 0.35rem;
+  color: #f37216;
+}
+
+.markdown-content a {
+  color: #f37216;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.code-block {
+  margin: 1.5rem 0;
+}
+
+.code-block__tabs {
+  display: flex;
+  width: max-content;
+  border: 1px solid var(--color-border);
+  border-bottom: 0;
+  background: #191715;
+}
+
+.code-block__tab {
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-spacemono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary);
+  background: transparent;
+  border: 0;
+}
+
+.code-block__tab+.code-block__tab {
+  border-left: 1px solid var(--color-border);
+}
+
+.code-block__copy {
+  cursor: pointer;
+}
+
+.code-block__copy:hover {
+  color: #f37216;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 1.25rem 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background-color: #191715 !important;
+  /* beats Shiki's inline style */
+  font-family: var(--font-spacemono);
+  font-size: 0.875rem;
+}

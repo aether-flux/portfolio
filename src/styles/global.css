@@ -19,3 +19,31 @@
 html {
   background-color: var(--color-bg);
 }
+
+body.is-loading {
+  overflow: hidden;
+}
+
+body.is-loading #hero-name {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  z-index: 60 !important;
+  margin: 0 !important;
+  transition: none !important;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  body.is-loading #hero-name {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1.25) !important;
+    z-index: 60 !important;
+    margin: 0 !important;
+    transition: none !important;
+    will-change: transform;
+  }
+}

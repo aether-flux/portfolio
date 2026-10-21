@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Contact from "../components/Contact.astro";
+
+import "../styles/md.css";
+---
+
+<BaseLayout>
+  <Navbar notHome={true} />
+
+  <div class="markdown-content p-5 py-20 md:p-20">
+    <slot />
+  </div>
+
+  <Contact />
+</BaseLayout>
+
+<script>
+document.addEventListener("click", async (e) => {
+  const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".code-block__copy");
+  if (!btn) return;
+  const code = btn.closest(".code-block")?.querySelector("pre code")?.textContent ?? "";
+  await navigator.clipboard.writeText(code);
+  btn.textContent = "Copied";
+  setTimeout(() => (btn.textContent = "Copy"), 1500);
+});
+</script>

@@ -1,7 +1,16 @@
+---
+const { notHome } = Astro.props;
+---
 <header id="nav" class="fixed top-0 left-0 w-full z-50 px-6 md:px-20 py-6 bg-bg border-b border-border">
   <div class="flex justify-between items-center">
     
-    <div id="logo-slot" class="h-12 w-32 flex items-center"></div>
+    <div id="logo-slot" class="h-12 w-32 flex items-center">{notHome ? (
+      <h1
+        class="fixed z-[60] origin-top-left will-change-transform font-serif text-lg md:text-xl text-primary italic leading-[1.1] transition-colors duration-300 hover:text-accent"
+      >
+        <a href="/">Amartya<br/>Chowdhury</a>
+      </h1>
+    ) : ""}</div>
 
     <nav class="hidden md:flex items-center gap-8 font-sans text-md text-primary">
       <a href="#about" class="nav-link hover:text-accent transition-colors">About</a>
