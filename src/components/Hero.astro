@@ -1,0 +1,130 @@
+---
+---
+<section id="hero" class="relative min-h-screen pt-32 px-6 mx-auto flex flex-col justify-center">
+  <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"> -->
+    
+    <!-- Left Column -->
+    <div class="space-y-6">
+      <div
+        id="hero-name-ghost"
+        aria-hidden="true"
+        class="invisible font-serif text-5xl md:text-7xl italic leading-[1.1]"
+      >
+        Amartya<br/>Chowdhury
+      </div>
+
+      <h1
+        id="hero-name"
+        class="fixed z-[60] origin-top-left will-change-transform font-serif text-5xl md:text-7xl text-primary italic leading-[1.1]"
+      >
+        Amartya<br/>Chowdhury
+      </h1>
+
+      <div class="grid grid-cols-[auto_1fr] items-baseline gap-3 font-mono text-sm md:text-lg leading-[1.4] text-secondary">
+        <span class="text-border">[spirit]</span>
+        <span>systems engineering</span>
+
+        <span class="text-border">[main]</span>
+        <span>Rust</span>
+
+        <span class="text-border">[goal]</span>
+        <span>make everyone's life easier</span>
+
+        <span class="text-border">[socials]</span>
+        <span>&lt;social links&gt;</span>
+      </div>
+
+      <!-- 16-Color Terminal Palette -->
+      <div class="pt-4">
+        <div class="grid grid-cols-8 gap-1.5 w-max bg-bg p-1.5">
+          <!-- Normal ANSI Colors -->
+          <div class="w-8 h-8 bg-[#191715] border border-border" title="Black"></div>
+          <div class="w-8 h-8 bg-[#D9534F] border border-border" title="Red"></div>
+          <div class="w-8 h-8 bg-[#7EA37B] border border-border" title="Green"></div>
+          <div class="w-8 h-8 bg-[#F37216] border border-border" title="Yellow / Accent"></div>
+          <div class="w-8 h-8 bg-[#6C8EA4] border border-border" title="Blue"></div>
+          <div class="w-8 h-8 bg-[#A8829E] border border-border" title="Magenta"></div>
+          <div class="w-8 h-8 bg-[#78A3A3] border border-border" title="Cyan"></div>
+          <div class="w-8 h-8 bg-[#CDC4BA] border border-border" title="White"></div>
+          
+          <!-- Bright ANSI Colors -->
+          <div class="w-8 h-8 bg-[#3D3834] border border-border" title="Bright Black"></div>
+          <div class="w-8 h-8 bg-[#E57373] border border-border" title="Bright Red"></div>
+          <div class="w-8 h-8 bg-[#A2C49F] border border-border" title="Bright Green"></div>
+          <div class="w-8 h-8 bg-[#FF8533] border border-border" title="Bright Yellow"></div>
+          <div class="w-8 h-8 bg-[#8FAEC4] border border-border" title="Bright Blue"></div>
+          <div class="w-8 h-8 bg-[#CBA3C1] border border-border" title="Bright Magenta"></div>
+          <div class="w-8 h-8 bg-[#9EC4C4] border border-border" title="Bright Cyan"></div>
+          <div class="w-8 h-8 bg-[#EFEAE6] border border-border" title="Bright White"></div>
+        </div>
+        
+        <button 
+          id="copy-palette-btn"
+          class="mt-3 font-mono text-sm text-primary hover:bg-primary hover:text-bg hover:border-primary border border-border px-2 py-1 cursor-pointer transition-colors"
+        >
+          COPY KITTY CONFIG
+        </button>
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
+
+<script>
+  const name = document.getElementById('hero-name') as HTMLElement | null;
+  const ghost = document.getElementById('hero-name-ghost') as HTMLElement | null;
+  const slot = document.getElementById('logo-slot') as HTMLElement | null;
+
+  if (name && ghost && slot) {
+    let dx = 0, dy = 0, scale = 1, range = 1;
+
+    const measure = () => {
+      name.style.transform = 'none';
+
+      const g = ghost.getBoundingClientRect();
+      const s = slot.getBoundingClientRect();
+      const startTop = g.top + window.scrollY; // where it sits at scrollY = 0
+
+      // pin the h1 exactly over the ghost
+      name.style.left = `${g.left}px`;
+      name.style.top = `${startTop}px`;
+
+      dx = s.left - g.left;
+      dy = s.top - startTop;
+      scale = Math.min(
+        s.height / name.offsetHeight,
+        s.width / name.offsetWidth
+      );
+      range = window.innerHeight * 0.4; // finishes after 40% viewport scroll
+    };
+
+    const update = () => {
+      const p = Math.min(Math.max(window.scrollY / range, 0), 1);
+      const sc = 1 - (1 - scale) * p;
+      name.style.transform = `translate3d(${dx * p}px, ${dy * p}px, 0) scale(${sc})`;
+    };
+
+    let ticking = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
+
+    window.addEventListener('resize', () => {
+      measure();
+      update();
+    });
+
+    document.fonts.ready.then(() => {
+      measure();
+      update();
+    });
+  }
+</script>

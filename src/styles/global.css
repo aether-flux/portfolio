@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-lora);
+  --font-sans: var(--font-spacegrotesk);
+  --font-mono: var(--font-spacemono);
+
+  --color-primary: #cdc4ba;
+  --color-secondary: #b8b2ab;
+  --color-accent: #f37216;
+  --color-bg: #191715;
+  --color-border: #78746e;
+}
+
+html {
+  background-color: var(--color-bg);
+}
