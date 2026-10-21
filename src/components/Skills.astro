@@ -1,3 +1,19 @@
-<section id="skills" class="min-h-screen">
-  <h1 class="font-serif italic text-primary text-7xl">My Toolbox</h1>
+---
+import SkillContainer from "./SkillContainer.astro";
+
+const skills = {
+  "languages": [ "rust", "c", "javascript", "typescript" ],
+  "systems": [ "concurrency", "parallelism", "memory management", "ffi", "networking", "databases", "data structures", "bit manipulation" ],
+  "tools": [ "linux", "git/github", "docker", "neovim" ],
+};
+---
+
+<section id="skills" class="relative mt-12 md:mt-0 px-5 md:px-20">
+  <h1 class="font-serif italic text-primary text-4xl md:text-6xl">My Toolbox</h1>
+
+  <div class="mt-5 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <SkillContainer title="Languages" skills={skills.languages} />
+    <SkillContainer title="Systems & Concepts" skills={skills.systems} />
+    <SkillContainer title="Tools & Platforms" skills={skills.tools} />
+  </div>
 </section>

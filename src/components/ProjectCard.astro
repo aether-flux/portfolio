@@ -1,0 +1,32 @@
+---
+const { title, desc, url, urlText } = Astro.props;
+---
+<div class="relative group p-8 flex flex-col gap-y-8 text-primary border border-border cursor-pointer">
+  <!-- Top-Left Bracket -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-2.5 left-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:-translate-x-2.5 group-hover:-translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+  <!-- Top-Right Bracket (Rotated 90deg) -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute rotate-90 top-2.5 right-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:translate-x-2.5 group-hover:-translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+  <!-- Bottom-Right Bracket (Rotated 180deg) -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute rotate-180 bottom-2.5 right-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:translate-x-2.5 group-hover:translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+  <!-- Bottom-Left Bracket (Rotated 270deg) -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute rotate-270 bottom-2.5 left-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:-translate-x-2.5 group-hover:translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+  <h1 class="font-serif italic text-5xl md:text-7xl font-semibold text-border transition-colors duration-300 group-hover:text-accent">{title}</h1>
+  <span class="font-sans text-primary text-md md:text-lg">{desc}</span>
+  <a href={url} class="uppercase font-mono text-sm md:text-md text-center w-full py-3 bg-primary text-bg transition-opacity duration-300 hover:opacity-80">{urlText ? urlText : "Learn More"}</a>
+</div>

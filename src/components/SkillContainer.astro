@@ -1,0 +1,36 @@
+---
+import SkillTag from "./SkillTag.astro";
+const { title, skills } = Astro.props;
+---
+
+<div class="relative group py-10 px-5 flex flex-col gap-y-8 text-primary border border-border">
+  <!-- Top-Left Bracket -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-2.5 left-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:-translate-x-2.5 group-hover:-translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+  <!-- Top-Right Bracket (Rotated 90deg) -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute rotate-90 top-2.5 right-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:translate-x-2.5 group-hover:-translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+  <!-- Bottom-Right Bracket (Rotated 180deg) -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute rotate-180 bottom-2.5 right-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:translate-x-2.5 group-hover:translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+  <!-- Bottom-Left Bracket (Rotated 270deg) -->
+  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute rotate-270 bottom-2.5 left-2.5 w-4 h-4 text-primary group-hover:text-accent pointer-events-none transition-all duration-300 group-hover:-translate-x-2.5 group-hover:translate-y-2.5 z-10">
+    <path d="M1 1L0.999999 21" stroke-width="2" stroke="currentColor"/>
+    <path d="M0 1L20 1" stroke-width="2" stroke="currentColor"/>
+  </svg>
+
+
+  <h2 class="font-sans text-3xl font-medium text-primary">{title}</h2>
+  <div class="flex flex-wrap gap-3">
+    {skills.map((skill: string) => <SkillTag skill={skill} />)}
+  </div>
+</div>

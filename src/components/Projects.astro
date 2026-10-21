@@ -1,0 +1,39 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+  {
+    "title": "fzfx",
+    "desc": "An experimental container runtime in Rust.",
+    "url": "/projects/kuro",
+  },
+  {
+    "title": "Kuro",
+    "desc": "An experimental container runtime in Rust.",
+    "url": "/projects/kuro",
+  },
+  {
+    "title": "Qred",
+    "desc": "An experimental container runtime in Rust.",
+    "url": "/projects/kuro",
+  },
+  {
+    "title": "Rensa",
+    "desc": "An experimental container runtime in Rust.",
+    "url": "/projects/kuro",
+  },
+  {
+    "title": "Recred",
+    "desc": "An experimental container runtime in Rust.",
+    "url": "/projects/kuro",
+  },
+]
+---
+<section id="work" class="relative min-h-screen mt-12 md:mt-30 px-5 md:px-20">
+  <h1 class="font-serif italic text-primary text-4xl md:text-6xl">Creations</h1>
+
+  <div class="mt-5 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
+    {projects.map((p) => <ProjectCard title={p.title} desc={p.desc} url={p.url} />)}
+    <ProjectCard title="More..." desc="View all of my project repositories on my GitHub account." url="https://github.com/aether-flux?tab=repositories" urlText="Go to GitHub" />
+  </div>
+</section>

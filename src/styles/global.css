@@ -12,6 +12,10 @@
   --color-border: #78746e;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 html {
   background-color: var(--color-bg);
 }
