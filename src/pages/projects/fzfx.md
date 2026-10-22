@@ -1,10 +1,11 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
+name: fzfx
 title: "fzfx - The CLI"
-description: "This is the first post of my new Astro blog."
+description: "Offline, fast, semantic CLI to search commands by intent."
 image:
-  url: "https://docs.astro.build/assets/rose.webp"
-  alt: "The Astro logo on a dark background with a pink glow."
+  url: "https://amarch.vercel.app/fzfx.webp"
+  alt: "fzfx - Offline, fast, semantic CLI to search commands by intent"
 tags:
   [
     "fzfx",
@@ -24,25 +25,157 @@ tags:
 
 # fzfx
 
-Published on: 2022-07-01
+[![asciicast](https://asciinema.org/a/mpEu3J0KEHLaUZVo)](https://asciinema.org/a/mpEu3J0KEHLaUZVo)
 
-Welcome to my project _fzfx_ about learning Astro! Here, I will share my learning journey as I build a new website.
+`fzfx` is an offline, fast, and semantic CLI command finder designed to instantly discover previously executed terminal commands using vector search rather than rigid exact or fuzzy substring matching.
 
-## What I've accomplished
+[GitHub](https://github.com/aether-flux/fzfx)
+[Crates.io](https://crates.io/crates/fzfx)
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+---
 
-## What's next
+# Features
 
-- I will finish the `Astro` tutorial.
-- Then keep adding more posts.
-- Watch this space for more to come.
+- **Local Semantic Search:** Uses ONNX-powered local embeddings (`AllMiniLML6V2`) via FastEmbed.
+- **Instant Cache:** Smart hit/miss disk caching. Repeated commands bypass model execution entirely.
+- **Direct Execution (`-x` / `--exec`):** Automatically runs your chosen command in a subshell once selected.
+- **Clipboard Copy (`-c` / `--copy`):** Copies the selected command directly to your system clipboard.
+- **Script & Agent Friendly (`-r` / `--raw`):** Outputs only the top match string without interactive terminal UI or extra logs.
+- **Clear Cache**: Use `--clear-cache` or `-C` to clear embeddings cache, and `--clear-all` to clear both model and embedding cache files.
 
-```rust
-struct Testing {
-  pub id: u16,
-  pub name: String,
+---
+
+# Installation
+
+## Quick Install (Shell Script)
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/aether-flux/fzfx/main/install.sh | sh
+```
+
+## `cargo` Install
+
+```sh
+cargo install fzfx
+```
+
+## Manual Build
+
+```sh
+# Clone the repo
+git clone https://github.com/aether-flux/fzfx
+cd fzfx
+
+# Run the CLI
+cargo run    # with additional flags and arguments
+```
+
+---
+
+# Usage
+
+## Basic Interactive Search
+
+Pipe any command list or history file into `fzfx`:
+
+```sh
+# Search through bash history
+cat ~/.bash_history | fzfx -q "check disk space"
+
+# Search through your terminal's history
+history | fzfx -q "list disk partitions"
+
+# Search active process list
+ps aux | fzfx -q "kill web server"
+```
+
+If no query (`-q` or `--query`) is supplied, `fzfx` prompts for input interactively:
+
+```sh
+fzfx -f ~/.bash_history
+```
+
+---
+
+# Flags and Options
+
+| Flag | Long Flag            | Description                                                   |
+| ---- | -------------------- | ------------------------------------------------------------- |
+| `-q` | `--query <TEXT>`     | Initial search query                                          |
+| `-f` | `--data-file <PATH>` | Path to candidate file (one entry per line)                   |
+| `-x` | `--exec`             | Automatically execute selected command                        |
+| `-c` | `--copy`             | Copy selected command to clipboard                            |
+| `-r` | `--raw`              | Print top match only (non-interactive, for scripts/AI agents) |
+| `-k` | `--top-k <NUM>`      | Specify number of results to show (default = 10)              |
+| `-C` | `--clear-cache`      | Remove cache files for command embedding                      |
+| NA   | `--clear-all`        | Remove both model and embedding cache files                   |
+
+---
+
+# Examples
+
+## Search and Copy Command
+
+```sh
+fzfx -f ~/.bash_history -q "list docker containers" -c
+```
+
+## Search and Execute Immediately
+
+```sh
+history | fzfx -q "find large files" -x
+```
+
+## Non-Interactive Script Integration
+
+```sh
+CMD=$(fzfx -f commands.txt -q "restart nginx" -r)
+eval "$CMD"
+```
+
+## Clear all cache files
+
+```sh
+fzfx --clear-all
+```
+
+---
+
+# Shell Integration
+
+Add a convenient shortcut to your `~/.zshrc` or `~/.bashrc` to invoke `fzfx` directly over your command history:
+
+```sh
+fz() {
+    local cmd
+    cmd=$(cat ~/.bash_history | fzfx -q "$*" -c)
 }
 ```
+
+---
+
+# Benchmarks
+
+`fzfx` is benchmarked using [Criterion.rs](https://github.com/bheisler/criterion.rs) across multiple execution paths to evaluate model cold starts, embedding latencies, and persistent cache hit speeds.
+
+| Execution State        | Latency    | Description                                                                           |
+| :--------------------- | :--------- | :------------------------------------------------------------------------------------ |
+| Fully Cold             | `~10.3s`   | Initial runtime setup, model weight loading, and initial downloads.                   |
+| Warm model, Cold cache | `~36.1ms`  | Model cached on-disk, batch computing ~10 missing embeddings via `fastembed`.         |
+| Warm model, Warm cache | `~729.5ns` | Instant lookup hit against cached embeddings serialized into hashmap (ahash).         |
+| Hybrid Rerank only     | `~2.5µs`   | Combined fuzzy distance search and cosine vector similarity to calculate final score. |
+
+> [!NOTE]
+> **Note on Cold Starts:** Benchmark `01` reflects isolated test runs that re-instantiate the ONNX environment on every iteration. In real-world CLI usage, warm-cache lookups execute sub-millisecond (`< 1 µs`), making `fzfx` feel instant in the terminal.
+
+---
+
+# Cache and Storage
+
+`fzfx` respects standard OS cache paths:
+
+- Linux: `~/.cache/fzfx/`
+- macOS: `~/Library/Caches/fzfx/`
+- Windows: `%LOCALAPPDATA%\fzfx\cache\`
+
+Model weights are cached under their specific directories and precomputed line vectors are serialized into `embeddings.bin`. To reset your search index cache, simply delete `embeddings.bin`.

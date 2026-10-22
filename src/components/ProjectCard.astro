@@ -1,5 +1,5 @@
 ---
-const { title, desc, url, urlText } = Astro.props;
+const { title, desc, url, urlText, btn2 } = Astro.props;
 ---
 <div class="relative group p-8 flex flex-col gap-y-8 text-primary border border-border cursor-pointer">
   <!-- Top-Left Bracket -->
@@ -28,5 +28,10 @@ const { title, desc, url, urlText } = Astro.props;
 
   <h1 class="font-serif italic text-5xl md:text-7xl font-semibold text-border transition-colors duration-300 group-hover:text-accent">{title}</h1>
   <span class="font-sans text-primary text-md md:text-lg">{desc}</span>
-  <a aria-label={title} href={url} class="uppercase font-mono text-sm md:text-md text-center w-full py-3 bg-primary text-bg transition-opacity duration-300 hover:opacity-80">{urlText ? urlText : "Learn More"}</a>
+  <div class="flex items-center justify-between gap-4">
+    <a aria-label={title} href={url} target={urlText ? "_blank" : "_self"} class="uppercase font-mono text-sm md:text-md text-center w-full py-3 bg-primary text-bg transition-opacity duration-300 hover:opacity-80">{urlText || "Learn More"}</a>
+    {btn2 && (
+    <a aria-label={btn2.value || "Descriptive button"} target="_blank" href={btn2.url || "/"} class="uppercase font-mono text-sm md:text-md text-center w-full py-3 bg-primary text-bg transition-opacity duration-300 hover:opacity-80">{btn2.value || "Learn More"}</a>
+    )}
+  </div>
 </div>

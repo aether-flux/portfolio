@@ -1,6 +1,8 @@
 import { defineConfig, fontProviders } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
+import remarkAlert from "remark-github-blockquote-alert";
+import { unified } from "@astrojs/markdown-remark";
 
 const el = (tagName, properties = {}, children = []) => ({
   type: "element",
@@ -35,6 +37,9 @@ export default defineConfig({
     },
   ],
   markdown: {
+    processor: unified({
+      remarkPlugins: [remarkAlert],
+    }),
     shikiConfig: {
       theme: "github-dark",
       transformers: [

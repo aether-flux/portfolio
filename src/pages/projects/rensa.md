@@ -1,9 +1,10 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
+name: rensa
 title: Rensa - Backend framework
 description: A minimal and fast backend framework in Node.js.
 image:
-  url: /rensa-og.webp
+  url: https://amarch.vercel.app/rensa.webp
   alt: Rensa - A minimal and fast backend framework in Node.js
 tags:
   [

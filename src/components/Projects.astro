@@ -4,8 +4,8 @@ import ProjectCard from "./ProjectCard.astro";
 const projects = [
   {
     "title": "fzfx",
-    "desc": "An experimental container runtime in Rust.",
-    "url": "/projects/kuro",
+    "desc": "Offline, fast, semantic CLI to search commands by intent.",
+    "url": "/projects/fzfx",
   },
   {
     "title": "Kuro",
@@ -14,26 +14,31 @@ const projects = [
   },
   {
     "title": "Qred",
-    "desc": "An experimental container runtime in Rust.",
-    "url": "/projects/kuro",
+    "desc": "A fast and lightweight QR generator in Rust.",
+    "url": "/projects/qred",
   },
   {
     "title": "Rensa",
-    "desc": "An experimental container runtime in Rust.",
-    "url": "/projects/kuro",
+    "desc": "A minimal and fast backend framework in Node.js.",
+    "url": "/projects/rensa",
   },
   {
     "title": "Recred",
-    "desc": "An experimental container runtime in Rust.",
-    "url": "/projects/kuro",
+"desc": "A CLI to generate certificates in bulk, efficiently.",
+    "url": "/projects/recred",
   },
 ]
+
+const btn2 = {
+  value: "Go to Codeberg",
+  url: "https://codeberg.org/aether-flux",
+}
 ---
 <section id="work" class="relative min-h-screen mt-12 md:mt-30 px-5 md:px-20">
   <h1 class="font-serif italic text-primary text-4xl md:text-6xl">Creations</h1>
 
   <div class="mt-5 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
     {projects.map((p) => <ProjectCard title={p.title} desc={p.desc} url={p.url} />)}
-    <ProjectCard title="More..." desc="View all of my project repositories on my GitHub account." url="https://github.com/aether-flux?tab=repositories" urlText="Go to GitHub" />
+    <ProjectCard title="More..." desc="View all of my project repositories on my GitHub and Codeberg accounts." url="https://github.com/aether-flux?tab=repositories" urlText="Go to GitHub" btn2={btn2} />
   </div>
 </section>

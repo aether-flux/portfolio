@@ -17,6 +17,19 @@ import '../styles/global.css';
     <meta property="og:image" content="/landing-og.webp">
     <meta property="og:image:alt" content="Amartya Chowdhury - Developing solutions to everyone's problems">
     <meta name="twitter:card" content="summary_large_image" />
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon-light.svg" 
+      media="(prefers-color-scheme: light)" 
+    />
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon-dark.svg" 
+      media="(prefers-color-scheme: dark)" 
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Amartya Chowdhury | Software Engineer & Rust Developer</title>
   </head>
   <body>
@@ -34,79 +47,6 @@ import '../styles/global.css';
 </html>
 
 <script>
-// document.body.classList.add('is-loading');
-//
-// let isPageLoaded = false;
-// let minTimePassed = false;
-// let hasExited = false;
-//
-// // Gate 1: Listen for page load completion
-// window.addEventListener('load', () => {
-//   isPageLoaded = true;
-//   checkAndTriggerExit();
-// });
-//
-// // Gate 2: Enforce a minimum display duration (e.g., 1500ms = 1.5 seconds)
-// setTimeout(() => {
-//   minTimePassed = true;
-//   checkAndTriggerExit();
-// }, 1000);
-//
-// function checkAndTriggerExit() {
-//   // Only trigger the exit animation if BOTH conditions are met and it hasn't run yet
-//   if (isPageLoaded && minTimePassed && !hasExited) {
-//     hasExited = true;
-//     runExitAnimation();
-//   }
-// }
-//
-// function runExitAnimation() {
-//   const heroName = document.getElementById('hero-name');
-//   const loader = document.getElementById('site-loader');
-//
-//   if (!heroName) {
-//     if (loader) loader.remove();
-//     document.body.classList.remove('is-loading');
-//     return;
-//   }
-//
-//   // 1. FIRST: Get bounding rect while element is fixed in the center
-//   const firstRect = heroName.getBoundingClientRect();
-//
-//   // 2. LAST: Remove loading class so element snaps back to normal document flow
-//   document.body.classList.remove('is-loading');
-//
-//   // Fade out the black background overlay
-//   if (loader) {
-//     loader.style.opacity = '0';
-//   }
-//
-//   // Get bounding rect in its normal document flow position
-//   const lastRect = heroName.getBoundingClientRect();
-//
-//   // 3. INVERT: Calculate the distance delta
-//   const deltaX = firstRect.left - lastRect.left;
-//   const deltaY = firstRect.top - lastRect.top;
-//   const startScale = 1.25;
-//
-//   // Instantly apply transform to hold position
-//   heroName.style.transition = 'none';
-//   heroName.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${startScale})`;
-//
-//   // Force browser reflow
-//   heroName.getBoundingClientRect();
-//
-//   // 4. PLAY: Animate smoothly to its natural resting place
-//   heroName.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-//   heroName.style.transform = 'translate(0px, 0px) scale(1)';
-//
-//   // Cleanup
-//   setTimeout(() => {
-//     if (loader) loader.remove();
-//     heroName.style.transition = '';
-//     heroName.style.transform = '';
-//   }, 900);
-// }
 const body = document.body;
 const loader = document.getElementById('site-loader');
 const hasHero = !!document.getElementById('hero-name');

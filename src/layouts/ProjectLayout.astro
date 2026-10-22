@@ -1,20 +1,61 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import { Font } from "astro:assets";
+import '../styles/global.css';
+import '../styles/md.css';
 import Navbar from "../components/Navbar.astro";
 import Contact from "../components/Contact.astro";
 
-import "../styles/md.css";
+const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout>
-  <Navbar notHome={true} />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content={frontmatter.description} />
+    <meta property="og:site_name" content={frontmatter.title} />
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://amarch.vercel.app/${frontmatter.name}`} />
+    <meta property="og:description" content={frontmatter.description} />
+    <meta property="og:image" content={frontmatter.image.url}>
+    <meta property="og:image:alt" content={frontmatter.image.alt}>
+    <meta name="twitter:card" content="summary_large_image" />
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon-light.svg" 
+      media="(prefers-color-scheme: light)" 
+    />
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon-dark.svg" 
+      media="(prefers-color-scheme: dark)" 
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body>
 
-  <div class="markdown-content p-5 py-20 md:p-20">
-    <slot />
-  </div>
+    <Font cssVariable="--font-lora" />
+    <Font cssVariable="--font-spacegrotesk" />
+    <Font cssVariable="--font-spacemono" />
 
-  <Contact />
-</BaseLayout>
+    <!-- Loading overlay -->
+    <!-- <div id="site-loader" class="fixed inset-0 bg-bg z-50 flex items-center justify-center transition-opacity duration-500 ease-out"></div> -->
+
+    <Navbar notHome={true} />
+
+    <div class="markdown-content px-5 py-20 md:p-20">
+      <slot />
+    </div>
+
+    <Contact />
+
+  </body>
+</html>
 
 <script>
 document.addEventListener("click", async (e) => {
