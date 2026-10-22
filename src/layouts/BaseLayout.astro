@@ -1,7 +1,6 @@
 ---
 import { Font } from "astro:assets";
 import '../styles/global.css';
-const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -9,7 +8,16 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title}</title>
+    <meta name="description" content="Systems-oriented engineer building performant tools, system utilities, and backend infrastructure in Rust, C, and TypeScript." />
+    <meta property="og:site_name" content="Amartya Chowdhury | Software Engineer & Rust Developer" />
+    <meta property="og:title" content="Amartya Chowdhury | Software Engineer & Rust Developer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://amarch.vercel.app/" />
+    <meta property="og:description" content="Systems-oriented engineer building performant tools, system utilities, and backend infrastructure in Rust, C, and TypeScript." />
+    <meta property="og:image" content="/landing-og.webp">
+    <meta property="og:image:alt" content="Amartya Chowdhury - Developing solutions to everyone's problems">
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Amartya Chowdhury | Software Engineer & Rust Developer</title>
   </head>
   <body>
 
@@ -26,77 +34,112 @@ const { title } = Astro.props;
 </html>
 
 <script>
-document.body.classList.add('is-loading');
+// document.body.classList.add('is-loading');
+//
+// let isPageLoaded = false;
+// let minTimePassed = false;
+// let hasExited = false;
+//
+// // Gate 1: Listen for page load completion
+// window.addEventListener('load', () => {
+//   isPageLoaded = true;
+//   checkAndTriggerExit();
+// });
+//
+// // Gate 2: Enforce a minimum display duration (e.g., 1500ms = 1.5 seconds)
+// setTimeout(() => {
+//   minTimePassed = true;
+//   checkAndTriggerExit();
+// }, 1000);
+//
+// function checkAndTriggerExit() {
+//   // Only trigger the exit animation if BOTH conditions are met and it hasn't run yet
+//   if (isPageLoaded && minTimePassed && !hasExited) {
+//     hasExited = true;
+//     runExitAnimation();
+//   }
+// }
+//
+// function runExitAnimation() {
+//   const heroName = document.getElementById('hero-name');
+//   const loader = document.getElementById('site-loader');
+//
+//   if (!heroName) {
+//     if (loader) loader.remove();
+//     document.body.classList.remove('is-loading');
+//     return;
+//   }
+//
+//   // 1. FIRST: Get bounding rect while element is fixed in the center
+//   const firstRect = heroName.getBoundingClientRect();
+//
+//   // 2. LAST: Remove loading class so element snaps back to normal document flow
+//   document.body.classList.remove('is-loading');
+//
+//   // Fade out the black background overlay
+//   if (loader) {
+//     loader.style.opacity = '0';
+//   }
+//
+//   // Get bounding rect in its normal document flow position
+//   const lastRect = heroName.getBoundingClientRect();
+//
+//   // 3. INVERT: Calculate the distance delta
+//   const deltaX = firstRect.left - lastRect.left;
+//   const deltaY = firstRect.top - lastRect.top;
+//   const startScale = 1.25;
+//
+//   // Instantly apply transform to hold position
+//   heroName.style.transition = 'none';
+//   heroName.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${startScale})`;
+//
+//   // Force browser reflow
+//   heroName.getBoundingClientRect();
+//
+//   // 4. PLAY: Animate smoothly to its natural resting place
+//   heroName.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+//   heroName.style.transform = 'translate(0px, 0px) scale(1)';
+//
+//   // Cleanup
+//   setTimeout(() => {
+//     if (loader) loader.remove();
+//     heroName.style.transition = '';
+//     heroName.style.transform = '';
+//   }, 900);
+// }
+const body = document.body;
+const loader = document.getElementById('site-loader');
+const hasHero = !!document.getElementById('hero-name');
 
-let isPageLoaded = false;
+let pageLoaded = document.readyState === 'complete';
 let minTimePassed = false;
-let hasExited = false;
+let exited = false;
 
-// Gate 1: Listen for page load completion
-window.addEventListener('load', () => {
-  isPageLoaded = true;
-  checkAndTriggerExit();
-});
+function tryExit() {
+  if (exited || !pageLoaded || !minTimePassed) return;
+  exited = true;
 
-// Gate 2: Enforce a minimum display duration (e.g., 1500ms = 1.5 seconds)
-setTimeout(() => {
-  minTimePassed = true;
-  checkAndTriggerExit();
-}, 1000);
+  body.classList.remove('is-loading');
 
-function checkAndTriggerExit() {
-  // Only trigger the exit animation if BOTH conditions are met and it hasn't run yet
-  if (isPageLoaded && minTimePassed && !hasExited) {
-    hasExited = true;
-    runExitAnimation();
-  }
-}
-
-function runExitAnimation() {
-  const heroName = document.getElementById('hero-name');
-  const loader = document.getElementById('site-loader');
-
-  if (!heroName) {
-    if (loader) loader.remove();
-    document.body.classList.remove('is-loading');
-    return;
-  }
-
-  // 1. FIRST: Get bounding rect while element is fixed in the center
-  const firstRect = heroName.getBoundingClientRect();
-
-  // 2. LAST: Remove loading class so element snaps back to normal document flow
-  document.body.classList.remove('is-loading');
-
-  // Fade out the black background overlay
   if (loader) {
     loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 600); // matches duration-500
   }
 
-  // Get bounding rect in its normal document flow position
-  const lastRect = heroName.getBoundingClientRect();
-
-  // 3. INVERT: Calculate the distance delta
-  const deltaX = firstRect.left - lastRect.left;
-  const deltaY = firstRect.top - lastRect.top;
-  const startScale = 1.25;
-
-  // Instantly apply transform to hold position
-  heroName.style.transition = 'none';
-  heroName.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${startScale})`;
-
-  // Force browser reflow
-  heroName.getBoundingClientRect();
-
-  // 4. PLAY: Animate smoothly to its natural resting place
-  heroName.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-  heroName.style.transform = 'translate(0px, 0px) scale(1)';
-
-  // Cleanup
-  setTimeout(() => {
-    if (loader) loader.remove();
-    heroName.style.transition = '';
-    heroName.style.transform = '';
-  }, 900);
+  // tell the Hero it can fly the name into place
+  window.dispatchEvent(new Event('site-ready'));
 }
+
+if (!pageLoaded) {
+  window.addEventListener('load', () => {
+    pageLoaded = true;
+    tryExit();
+  });
+}
+
+// no point holding the splash on pages without the hero
+setTimeout(() => {
+  minTimePassed = true;
+  tryExit();
+}, hasHero ? 1000 : 0);
 </script>

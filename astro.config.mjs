@@ -13,6 +13,9 @@ const text = (value) => ({ type: "text", value });
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: true,
+    },
   },
   fonts: [
     {

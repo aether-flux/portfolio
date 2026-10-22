@@ -35,52 +35,87 @@ const { notHome } = Astro.props;
     id="mobile-menu" 
     class="fixed inset-x-0 top-[81px] bottom-0 bg-bg z-40 flex flex-col items-center justify-center gap-8 font-sans text-2xl text-primary md:hidden opacity-0 pointer-events-none -translate-y-4 transition-all duration-300 ease-in-out shadow-2xl"
   >
-    <a href="#about" class="mobile-nav-link hover:text-accent transition-colors">About</a>
-    <a href="#skills" class="mobile-nav-link hover:text-accent transition-colors">Skills</a>
-    <a href="#work" class="mobile-nav-link hover:text-accent transition-colors">Work</a>
-    <a href="#contact" class="mobile-nav-link hover:text-accent transition-colors">Contact</a>
+    <a href="#about" class="mobile-nav-link nav-link hover:text-accent transition-colors">About</a>
+    <a href="#skills" class="mobile-nav-link nav-link hover:text-accent transition-colors">Skills</a>
+    <a href="#work" class="mobile-nav-link nav-link hover:text-accent transition-colors">Work</a>
+    <a href="#contact" class="mobile-nav-link nav-link hover:text-accent transition-colors">Contact</a>
   </div>
 </header>
 
 <script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const iconOpen = document.getElementById('icon-open');
-  const iconClose = document.getElementById('icon-close');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const iconOpen = document.getElementById('icon-open');
+const iconClose = document.getElementById('icon-close');
+const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-  function toggleMenu() {
-    const isOpen = mobileMenu?.classList.contains('opacity-100');
+function toggleMenu() {
+  const isOpen = mobileMenu?.classList.contains('opacity-100');
 
-    if (isOpen) {
-      // Close menu animation state
-      mobileMenu?.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-      mobileMenu?.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
-      iconOpen?.classList.remove('hidden');
-      iconOpen?.classList.add('block');
-      iconClose?.classList.remove('block');
-      iconClose?.classList.add('hidden');
-      document.body.style.overflow = ''; // Restore scrolling
-    } else {
-      // Open menu animation state
-      mobileMenu?.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
-      mobileMenu?.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-      iconOpen?.classList.remove('block');
-      iconOpen?.classList.add('hidden');
-      iconClose?.classList.remove('hidden');
-      iconClose?.classList.add('block');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
+  if (isOpen) {
+    // Close menu animation state
+    mobileMenu?.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+    mobileMenu?.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+    iconOpen?.classList.remove('hidden');
+    iconOpen?.classList.add('block');
+    iconClose?.classList.remove('block');
+    iconClose?.classList.add('hidden');
+    document.body.style.overflow = ''; // Restore scrolling
+  } else {
+    // Open menu animation state
+    mobileMenu?.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+    mobileMenu?.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+    iconOpen?.classList.remove('block');
+    iconOpen?.classList.add('hidden');
+    iconClose?.classList.remove('hidden');
+    iconClose?.classList.add('block');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
   }
+}
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', toggleMenu);
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', toggleMenu);
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        // Close menu smoothly when a link is clicked
-        toggleMenu();
-      });
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Close menu smoothly when a link is clicked
+      toggleMenu();
     });
-  }
+  });
+}
+
+// IntersectionObserver for navbar sections
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px', // Triggers when section enters the upper-middle part of the screen
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const currentId = entry.target.getAttribute('id');
+
+        navLinks.forEach((link) => {
+          // Check if link matches current section id
+          if (link.getAttribute('href') === `#${currentId}`) {
+            link.classList.add('text-accent');
+            link.classList.remove('text-primary');
+          } else {
+            link.classList.remove('text-accent');
+            link.classList.add('text-primary');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+});
 </script>

@@ -25,12 +25,12 @@ body.is-loading {
 }
 
 body.is-loading #hero-name {
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) scale(1) !important;
+  /* position: fixed !important; */
+  /* top: 50% !important; */
+  /* left: 50% !important; */
+  /* transform: translate(-50%, -50%) scale(1) !important; */
   z-index: 60 !important;
-  margin: 0 !important;
+  /* margin: 0 !important; */
   transition: none !important;
   will-change: transform;
 }
