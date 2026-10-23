@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import remarkAlert from "remark-github-blockquote-alert";
 import { unified } from "@astrojs/markdown-remark";
 
+import sitemap from "@astrojs/sitemap";
+
 const el = (tagName, properties = {}, children = []) => ({
   type: "element",
   tagName,
@@ -13,12 +15,15 @@ const el = (tagName, properties = {}, children = []) => ({
 const text = (value) => ({ type: "text", value });
 
 export default defineConfig({
+  integrations: [sitemap()],
+
   vite: {
     plugins: [tailwindcss()],
     server: {
       allowedHosts: true,
     },
   },
+
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -36,6 +41,7 @@ export default defineConfig({
       cssVariable: "--font-spacemono",
     },
   ],
+
   markdown: {
     processor: unified({
       remarkPlugins: [remarkAlert],

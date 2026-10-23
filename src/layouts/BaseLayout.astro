@@ -1,6 +1,30 @@
 ---
 import { Font } from "astro:assets";
 import '../styles/global.css';
+
+const siteUrl = Astro.site?.href || "https://amarch.vercel.app";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Amartya Chowdhury",
+  jobTitle: "Systems & Software Engineer",
+  url: siteUrl,
+  sameAs: [
+    "https://linkedin.com/in/amartya-chowdhury",
+    "https://github.com/aether-flux",
+    "https://codeberg.com/aether-flux",
+    "https://https://dev.to/aetherflux",
+  ],
+  knowsAbout: [
+    "Low-Level Systems Programming",
+    "Rust",
+    "C",
+    "Web Development",
+    "Backend",
+    "Linux",
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -30,6 +54,7 @@ import '../styles/global.css';
       media="(prefers-color-scheme: dark)" 
     />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>Amartya Chowdhury | Software Engineer & Rust Developer</title>
   </head>
   <body>
