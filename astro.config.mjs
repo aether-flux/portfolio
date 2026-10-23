@@ -15,6 +15,7 @@ const el = (tagName, properties = {}, children = []) => ({
 const text = (value) => ({ type: "text", value });
 
 export default defineConfig({
+  site: "https://amarch.vercel.app",
   integrations: [sitemap()],
 
   vite: {
