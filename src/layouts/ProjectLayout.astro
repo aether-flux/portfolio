@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro";
 import { Font } from "astro:assets";
 import '../styles/global.css';
 import '../styles/md.css';
@@ -36,6 +37,9 @@ const { frontmatter } = Astro.props;
     />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{frontmatter.title}</title>
+
+    <meta name="google-site-verification" content="wHBP3UY22MdwxHj2dr8PMLMDNjB3UOYFWdnziByyppg" />
+    <Analytics />
   </head>
   <body>
 
