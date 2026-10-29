@@ -1,0 +1,85 @@
+---
+import Analytics from "@vercel/analytics/astro";
+import { Font } from "astro:assets";
+import '../styles/global.css';
+import '../styles/md.css';
+import Navbar from "../components/Navbar.astro";
+import Contact from "../components/Contact.astro";
+
+const { frontmatter, title, description, image } = Astro.props;
+
+const pageTitle = frontmatter?.title || title || "Blog — Amartya Chowdhury";
+const pageDesc = frontmatter?.description || description || "Systems engineering logs, network tools, and development notes.";
+const pageImage = frontmatter?.image?.url || image || "/og-landing.png";
+const pageImageAlt = frontmatter?.image?.alt || pageTitle;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://amarch.vercel.app");
+const imageURL = new URL(pageImage, Astro.site || "https://amarch.vercel.app").href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content={pageDesc} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <meta property="og:site_name" content="Amartya Chowdhury" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:alt" content={pageImageAlt} />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDesc} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon-light.svg" 
+      media="(prefers-color-scheme: light)" 
+    />
+    <link 
+      rel="icon" 
+      type="image/svg+xml" 
+      href="/favicon-dark.svg" 
+      media="(prefers-color-scheme: dark)" 
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{pageTitle}</title>
+
+    <meta name="google-site-verification" content="wHBP3UY22MdwxHj2dr8PMLMDNjB3UOYFWdnziByyppg" />
+    <Analytics />
+  </head>
+  <body>
+
+    <Font cssVariable="--font-lora" />
+    <Font cssVariable="--font-spacegrotesk" />
+    <Font cssVariable="--font-spacemono" />
+
+    <Navbar notHome={true} />
+
+    <div class="my-10">
+      <slot />
+    </div>
+
+    <Contact />
+
+  </body>
+</html>
+
+<script>
+document.addEventListener("click", async (e) => {
+  const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".code-block__copy");
+  if (!btn) return;
+  const code = btn.closest(".code-block")?.querySelector("pre code")?.textContent ?? "";
+  await navigator.clipboard.writeText(code);
+  btn.textContent = "Copied";
+  setTimeout(() => (btn.textContent = "Copy"), 1500);
+});
+</script>

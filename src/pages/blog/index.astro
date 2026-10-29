@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(date);
+}
+---
+
+<BaseLayout title="Blog — Amartya Chowdhury" description="Systems engineering logs, network monitors, and low-level dev notes.">
+  <Navbar notHome={true} />
+
+  <main class="max-w-3xl mx-auto px-5 py-30 font-mono">
+    <div class="mb-12">
+      <h1 class="text-2xl font-bold text-primary mt-4 tracking-tight">SYSTEM LOGS & BLOGS</h1>
+      <p class="text-sm text-primary mt-2">Overflow projects, logs, and deep dives.</p>
+    </div>
+
+    <div class="border-t border-border divide-y divide-border/50">
+      {posts.map((post: any) => (
+        <article class="py-6 group">
+          <a href={`/blog/${post.id}`} class="block">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+              <h2 class="text-lg font-semibold text-primary group-hover:text-accent transition-colors">
+                {post.data.title}
+              </h2>
+              <time class="text-xs text-primary font-mono">{formatDate(post.data.date)}</time>
+            </div>
+            <p class="text-sm text-primary font-sans line-clamp-2">{post.data.description}</p>
+          </a>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

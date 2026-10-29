@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post: any) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogLayout title={`${post.data.title} - Amartya Chowdhury`} description={post.data.description}>
+  <article class="px-5 py-20 md:p-20">
+    <div class="mb-8">
+      <a href="/blog" class="mb-20 text-xs font-mono text-secondary hover:text-accent transition-colors">BACK TO LOGS</a>
+      <h1 class="text-3xl font-bold text-primary mt-4 tracking-tight">{post.data.title}</h1>
+      <time class="text-xs font-mono text-primary mt-2 block">{post.data.date}</time>
+    </div>
+
+    <!-- Reusing your existing markdown content styling class -->
+    <div class="markdown-content">
+      <Content />
+    </div>
+  </article>
+</BlogLayout>
