@@ -17,8 +17,9 @@ const { Content } = await render(post);
 <BlogLayout title={`${post.data.title} - Amartya Chowdhury`} description={post.data.description}>
   <article class="px-5 py-20 md:p-20">
     <div class="mb-8">
-      <a href="/blog" class="mb-20 text-xs font-mono text-secondary hover:text-accent transition-colors">BACK TO LOGS</a>
-      <h1 class="text-3xl font-bold text-primary mt-4 tracking-tight">{post.data.title}</h1>
+      <!-- <a href="/blog" class="mb-20 text-xs font-mono text-secondary hover:text-accent transition-colors">BACK TO LOGS</a> -->
+      <a href="/blog" class="mt-8 font-mono uppercase text-sm text-primary hover:bg-primary hover:text-bg hover:border-primary border border-border px-2 py-1 cursor-pointer transition-colors">back to blogs</a>
+      <h1 class="text-3xl font-bold text-primary mt-8 tracking-tight">{post.data.title}</h1>
       <time class="text-xs font-mono text-primary mt-2 block">{post.data.date}</time>
     </div>
 
